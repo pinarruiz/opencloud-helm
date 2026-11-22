@@ -5,64 +5,12 @@ set -e
 mkdir -p /var/lib/opencloud/web/assets/apps
 
 # Copy extensions to the apps directory
-{{- if .Values.webExtensions.extensions.drawio.enabled }}
-echo "Initializing Draw.io extension..."
-cp -R /extensions/draw-io/ /var/lib/opencloud/web/assets/apps/
+{{- range $name, $ext := .Values.webExtensions.extensions }}
+{{- if $ext.enabled }}
+{{- $folder := default $name $ext.folder }}
+echo "Initializing {{ $folder }} extension..."
+cp -R /extensions/{{ $folder }}/ /var/lib/opencloud/web/assets/apps/
 {{- end }}
-
-{{- if .Values.webExtensions.extensions.excalidraw.enabled }}
-echo "Initializing Excalidraw extension..."
-cp -R /extensions/excalidraw/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.externalsites.enabled }}
-echo "Initializing External Sites extension..."
-cp -R /extensions/external-sites/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.importer.enabled }}
-echo "Initializing Importer extension..."
-cp -R /extensions/importer/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.jsonviewer.enabled }}
-echo "Initializing JSON Viewer extension..."
-cp -R /extensions/json-viewer/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.progressbars.enabled }}
-echo "Initializing Progress Bars extension..."
-cp -R /extensions/progress-bars/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.unzip.enabled }}
-echo "Initializing Unzip extension..."
-cp -R /extensions/unzip/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.arcade.enabled }}
-echo "Initializing Arcade extension..."
-cp -R /extensions/arcade/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.calculator.enabled }}
-echo "Initializing Calculator extension..."
-cp -R /extensions/calculator/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.cast.enabled }}
-echo "Initializing Cast extension..."
-cp -R /extensions/cast/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.maps.enabled }}
-echo "Initializing Maps extension..."
-cp -R /extensions/maps/ /var/lib/opencloud/web/assets/apps/
-{{- end }}
-
-{{- if .Values.webExtensions.extensions.pastebin.enabled }}
-echo "Initializing Pastebin extension..."
-cp -R /extensions/pastebin/ /var/lib/opencloud/web/assets/apps/
 {{- end }}
 
 echo "Web extensions initialization completed."

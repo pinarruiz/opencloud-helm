@@ -99,101 +99,17 @@ spec:
               mountPath: /theme-branding
         {{- if .Values.webExtensions.enabled }}
         # Web extensions init containers
-        {{- if .Values.webExtensions.extensions.drawio.enabled }}
-        - name: init-drawio
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.drawio.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/draw-io && cp -R /usr/share/nginx/html/apps/draw-io/ /extensions/']
+        {{- range $name, $ext := .Values.webExtensions.extensions }}
+        {{- if $ext.enabled }}
+        {{- $folder := default $name $ext.folder }}
+        {{- $source := default (printf "/usr/share/nginx/html/apps/%s" $folder) $ext.source }}
+        - name: init-{{ $name }}
+          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" $ext.tag) $.Values.webExtensions.image) "global" $.Values.global) | quote }}
+          command: ['sh', '-c', 'mkdir -p /extensions/{{ $folder }} && cp -R {{ $source }}/. /extensions/{{ $folder }}/']
           volumeMounts:
             - name: extensions
               mountPath: /extensions
         {{- end }}
-        {{- if .Values.webExtensions.extensions.excalidraw.enabled }}
-        - name: init-excalidraw
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.excalidraw.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/excalidraw && cp -R /usr/share/nginx/html/apps/excalidraw/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.externalsites.enabled }}
-        - name: init-externalsites
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.externalsites.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/external-sites && cp -R /usr/share/nginx/html/apps/external-sites/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.importer.enabled }}
-        - name: init-importer
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.importer.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/importer && cp -R /usr/share/nginx/html/importer/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.jsonviewer.enabled }}
-        - name: init-jsonviewer
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.jsonviewer.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/json-viewer && cp -R /usr/share/nginx/html/apps/json-viewer/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.progressbars.enabled }}
-        - name: init-progressbars
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.progressbars.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/progress-bars && cp -R /usr/share/nginx/html/apps/progress-bars/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.unzip.enabled }}
-        - name: init-unzip
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.unzip.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/unzip && cp -R /usr/share/nginx/html/apps/unzip/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.arcade.enabled }}
-        - name: init-arcade
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.arcade.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/arcade && cp -R /usr/share/nginx/html/apps/arcade/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.calculator.enabled }}
-        - name: init-calculator
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.calculator.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/calculator && cp -R /usr/share/nginx/html/apps/calculator/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.cast.enabled }}
-        - name: init-cast
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.cast.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/cast && cp -R /usr/share/nginx/html/apps/cast/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.maps.enabled }}
-        - name: init-maps
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.maps.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/maps && cp -R /usr/share/nginx/html/apps/maps/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
-        {{- end }}
-        {{- if .Values.webExtensions.extensions.pastebin.enabled }}
-        - name: init-pastebin
-          image: {{ include "opencloud.image" (dict "imageValues" (merge (dict "tag" .Values.webExtensions.extensions.pastebin.tag) .Values.webExtensions.image) "global" .Values.global) | quote }}
-          command: ['sh', '-c', 'mkdir -p /extensions/pastebin && cp -R /usr/share/nginx/html/apps/pastebin/ /extensions/']
-          volumeMounts:
-            - name: extensions
-              mountPath: /extensions
         {{- end }}
         # Final init container to copy all extensions to the apps directory
         - name: init-web-extensions

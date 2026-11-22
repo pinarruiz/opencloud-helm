@@ -579,6 +579,8 @@ opencloud:
 
 ### Web Extensions Settings
 
+Extensions are generated from the `webExtensions.extensions` map, so any entry added there is deployed automatically. Each entry supports `enabled`, `tag`, `folder` (destination folder under `web/assets/apps`, defaults to the map key) and `source` (source folder in the image, defaults to `/usr/share/nginx/html/apps/<folder>`).
+
 | Parameter | Description | Default |
 | --------- | ----------- | ------- |
 | `webExtensions.enabled` | Enable web extensions | `true` |
