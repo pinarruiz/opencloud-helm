@@ -4,6 +4,157 @@ All notable changes to this project will be documented in this file.
 
 <!-- release-bot:start -->
 
+## [1.0.0] - 2026-11-22
+
+### Breaking Changes
+- None
+
+### Features
+- [#185](https://github.com/Tim-herbie/opencloud-helm/pull/185) feat(clamav): configure scan limits
+- [#180](https://github.com/Tim-herbie/opencloud-helm/pull/180) feat: set default Yjs memory resources
+- [#177](https://github.com/Tim-herbie/opencloud-helm/pull/177) feat: enable Yjs collaboration and improve Collabora defaults
+- [#173](https://github.com/Tim-herbie/opencloud-helm/pull/173) feat: expose prometheus metrics for opencloud
+- [#162](https://github.com/Tim-herbie/opencloud-helm/pull/162) feat(httproute): allow exact sectionName overrides for external gateways
+- [#157](https://github.com/Tim-herbie/opencloud-helm/pull/157) feat: extend csp yaml for epub reader iframe sytle loading
+- [#83](https://github.com/Tim-herbie/opencloud-helm/pull/83) feat: Add helm-unittest pipeline test cases for web extensions, ingress, and gateway HTTPRoutes
+- [#66](https://github.com/Tim-herbie/opencloud-helm/pull/66) feat: add proxy configuration file to Helm chart
+- [#64](https://github.com/Tim-herbie/opencloud-helm/pull/64) feat: parametrize all OpenCloud envs and update documentation #42
+- [#54](https://github.com/Tim-herbie/opencloud-helm/pull/54) feat: support external PostgreSQL with internal Keycloak
+
+### Fixes
+- [#198](https://github.com/Tim-herbie/opencloud-helm/pull/198) fix(collabora): disable jail tree mounting
+- [#199](https://github.com/Tim-herbie/opencloud-helm/pull/199) fix(collabora): probe / instead of /hosting/discovery
+- [#190](https://github.com/Tim-herbie/opencloud-helm/pull/190) fix(flux): raise OpenCloud memory defaults and check MIME via 4 KiB range read
+- [#170](https://github.com/Tim-herbie/opencloud-helm/pull/170) fix(opencloud): init-container creates and validates IDM LDAP cert/ke…
+- [#169](https://github.com/Tim-herbie/opencloud-helm/pull/169) fix(identity): add opencloud.ldap.keepIdm for external OIDC without OpenLDAP
+- [#154](https://github.com/Tim-herbie/opencloud-helm/pull/154) fix: add Flux reconciler RBAC for Keycloak
+- [#149](https://github.com/Tim-herbie/opencloud-helm/pull/149) fix: preserve proxy policies with role quotas
+- [#129](https://github.com/Tim-herbie/opencloud-helm/pull/129) fix: improve httproute and gateway usability
+- [#117](https://github.com/Tim-herbie/opencloud-helm/pull/117) fix: collaboration nats connection to opencloud
+- [#93](https://github.com/Tim-herbie/opencloud-helm/pull/93) fix: idm authentication #92
+- [#56](https://github.com/Tim-herbie/opencloud-helm/pull/56) fix(gateway): make HTTPRoute sectionName optional and remove duplicate WOPI route
+- [#40](https://github.com/Tim-herbie/opencloud-helm/pull/40) fix(collabora): replace hardcoded release name with generic one
+- [#34](https://github.com/Tim-herbie/opencloud-helm/pull/34) fix(postgres): replace alpine with bookworm for filesystem compatibility
+- [#24](https://github.com/Tim-herbie/opencloud-helm/pull/24) fix(ingress): deploy keycloak ingress only if ingress and internal keycloak is enabled
+
+### Chore / Docs / CI / Other
+- [#203](https://github.com/Tim-herbie/opencloud-helm/pull/203) chore(release): v3.2.3
+- [#202](https://github.com/Tim-herbie/opencloud-helm/pull/202) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v9.2.0
+- [#200](https://github.com/Tim-herbie/opencloud-helm/pull/200) chore(release): v3.2.2
+- [#196](https://github.com/Tim-herbie/opencloud-helm/pull/196) chore(deps): update docker.io/collabora/code docker tag to v26.04.6.1.1
+- [#197](https://github.com/Tim-herbie/opencloud-helm/pull/197) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v9.1.0
+- [#191](https://github.com/Tim-herbie/opencloud-helm/pull/191) chore(release): v3.2.1
+- [#181](https://github.com/Tim-herbie/opencloud-helm/pull/181) chore(deps): update opencloudeu/web-extensions docker tag to maps-3.1.1
+- [#195](https://github.com/Tim-herbie/opencloud-helm/pull/195) chore(deps): update dependency node to v26
+- [#194](https://github.com/Tim-herbie/opencloud-helm/pull/194) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v9
+- [#193](https://github.com/Tim-herbie/opencloud-helm/pull/193) chore(deps): update docker.io/opencloudeu/yjs docker tag to v1.1.1
+- [#192](https://github.com/Tim-herbie/opencloud-helm/pull/192) chore(deps): update docker.io/collabora/code docker tag to v26.04.5.2.1
+- [#189](https://github.com/Tim-herbie/opencloud-helm/pull/189) chore(deps): update docker.io/collabora/code docker tag to v26.04.5.1.1
+- [#184](https://github.com/Tim-herbie/opencloud-helm/pull/184) chore(release): v3.2.0
+- [#187](https://github.com/Tim-herbie/opencloud-helm/pull/187) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v8.1.0
+- [#186](https://github.com/Tim-herbie/opencloud-helm/pull/186) chore(deps): update docker.io/opencloudeu/yjs docker tag to v1.1.0
+- [#178](https://github.com/Tim-herbie/opencloud-helm/pull/178) chore(deps): update docker.io/collabora/code docker tag to v26.04.4.2.1
+- [#182](https://github.com/Tim-herbie/opencloud-helm/pull/182) chore(deps): update alpine/openssl docker tag to v3.5.9
+- [#183](https://github.com/Tim-herbie/opencloud-helm/pull/183) chore(deps): update docker.io/alpine/openssl docker tag to v3.5.9
+- [#165](https://github.com/Tim-herbie/opencloud-helm/pull/165) chore(release): v3.1.0
+- [#176](https://github.com/Tim-herbie/opencloud-helm/pull/176) chore(deps): update docker.io/collabora/code docker tag to v26.04.4.1.1
+- [#175](https://github.com/Tim-herbie/opencloud-helm/pull/175) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v8.0.1
+- [#171](https://github.com/Tim-herbie/opencloud-helm/pull/171) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v8
+- [#168](https://github.com/Tim-herbie/opencloud-helm/pull/168) chore(ci): package and push every pr change to the registry
+- [#163](https://github.com/Tim-herbie/opencloud-helm/pull/163) chore(deps): update docker.io/collabora/code docker tag to v26.04.3.2.1
+- [#151](https://github.com/Tim-herbie/opencloud-helm/pull/151) chore(release): v3.0.0
+- [#161](https://github.com/Tim-herbie/opencloud-helm/pull/161) chore(deps): update docker.io/collabora/code docker tag to v26.04.3.1.1
+- [#155](https://github.com/Tim-herbie/opencloud-helm/pull/155) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v7.5.0
+- [#160](https://github.com/Tim-herbie/opencloud-helm/pull/160) chore(deps): update docker.io/alpine/openssl docker tag to v3.5.8
+- [#153](https://github.com/Tim-herbie/opencloud-helm/pull/153) chore(deps): update oras-project/setup-oras action to v2
+- [#152](https://github.com/Tim-herbie/opencloud-helm/pull/152) chore(ci): package and push every helm chart for the tag latest
+- [#150](https://github.com/Tim-herbie/opencloud-helm/pull/150) chore(deps): update opencloudeu/web-extensions docker tag to draw-io-2.2.0
+- [#125](https://github.com/Tim-herbie/opencloud-helm/pull/125) chore(release): v2.4.7
+- [#136](https://github.com/Tim-herbie/opencloud-helm/pull/136) chore(deps): update docker.io/collabora/code docker tag to v26.04.2.4.1
+- [#139](https://github.com/Tim-herbie/opencloud-helm/pull/139) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v7.4.0
+- [#140](https://github.com/Tim-herbie/opencloud-helm/pull/140) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.7.1
+- [#135](https://github.com/Tim-herbie/opencloud-helm/pull/135) chore(deps): update opencloudeu/web-extensions docker tag
+- [#134](https://github.com/Tim-herbie/opencloud-helm/pull/134) chore(deps): update dependency node to v24
+- [#133](https://github.com/Tim-herbie/opencloud-helm/pull/133) chore(deps): update opencloudeu/web-extensions docker tag
+- [#131](https://github.com/Tim-herbie/opencloud-helm/pull/131) chore(deps): update actions/upload-artifact action to v7
+- [#130](https://github.com/Tim-herbie/opencloud-helm/pull/130) chore(deps): update actions/setup-node action to v7
+- [#128](https://github.com/Tim-herbie/opencloud-helm/pull/128) chore(tests): add e2e tests
+- [#126](https://github.com/Tim-herbie/opencloud-helm/pull/126) chore(docs): add minimal-setup docs example
+- [#124](https://github.com/Tim-herbie/opencloud-helm/pull/124) chore: move set OC_ADMIN_USER_ID always instead only when oidc is ena…
+- [#118](https://github.com/Tim-herbie/opencloud-helm/pull/118) chore(release): v2.4.6
+- [#113](https://github.com/Tim-herbie/opencloud-helm/pull/113) chore(release): v2.4.5
+- [#114](https://github.com/Tim-herbie/opencloud-helm/pull/114) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v7.3.0
+- [#111](https://github.com/Tim-herbie/opencloud-helm/pull/111) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.7.0
+- [#112](https://github.com/Tim-herbie/opencloud-helm/pull/112) chore(deps): update docker.io/collabora/code docker tag to v26.04.2.1.1
+- [#103](https://github.com/Tim-herbie/opencloud-helm/pull/103) chore(release): v2.4.4
+- [#108](https://github.com/Tim-herbie/opencloud-helm/pull/108) chore(deps): update actions/checkout action to v7
+- [#104](https://github.com/Tim-herbie/opencloud-helm/pull/104) chore(deps): update docker.io/collabora/code docker tag to v26
+- [#105](https://github.com/Tim-herbie/opencloud-helm/pull/105) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.6.3
+- [#109](https://github.com/Tim-herbie/opencloud-helm/pull/109) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v7.2.0
+- [#101](https://github.com/Tim-herbie/opencloud-helm/pull/101) chore(release): v2.4.3
+- [#102](https://github.com/Tim-herbie/opencloud-helm/pull/102) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v7.1.0
+- [#99](https://github.com/Tim-herbie/opencloud-helm/pull/99) chore(deps): update docker.io/collabora/code docker tag to v25.04.10.3.1
+- [#100](https://github.com/Tim-herbie/opencloud-helm/pull/100) chore(release): v2.4.2
+- [#95](https://github.com/Tim-herbie/opencloud-helm/pull/95) chore(deps): update docker.io/library/busybox docker tag to v1.38
+- [#96](https://github.com/Tim-herbie/opencloud-helm/pull/96) chore(deps): update docker.io/apache/tika docker tag to v3.3.1.0
+- [#91](https://github.com/Tim-herbie/opencloud-helm/pull/91) chore(release): v2.4.1
+- [#86](https://github.com/Tim-herbie/opencloud-helm/pull/86) chore(release): v2.4.0
+- [#90](https://github.com/Tim-herbie/opencloud-helm/pull/90) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v7
+- [#89](https://github.com/Tim-herbie/opencloud-helm/pull/89) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.6.2
+- [#82](https://github.com/Tim-herbie/opencloud-helm/pull/82) chore(release): v2.3.0
+- [#84](https://github.com/Tim-herbie/opencloud-helm/pull/84) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v6.2.0
+- [#79](https://github.com/Tim-herbie/opencloud-helm/pull/79) chore(deps): update peter-evans/create-pull-request action to v8
+- [#67](https://github.com/Tim-herbie/opencloud-helm/pull/67) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.6.1
+- [#71](https://github.com/Tim-herbie/opencloud-helm/pull/71) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v6.1.0
+- [#65](https://github.com/Tim-herbie/opencloud-helm/pull/65) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v6
+- [#62](https://github.com/Tim-herbie/opencloud-helm/pull/62) chore(deps): update azure/setup-helm action to v5
+- [#63](https://github.com/Tim-herbie/opencloud-helm/pull/63) chore(deps): update docker.io/apache/tika docker tag to v3.3.0.0
+- [#61](https://github.com/Tim-herbie/opencloud-helm/pull/61) chore(deps): update docker.io/collabora/code docker tag to v25.04.9.4.1
+- [#60](https://github.com/Tim-herbie/opencloud-helm/pull/60) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.6
+- [#59](https://github.com/Tim-herbie/opencloud-helm/pull/59) chore(deps): update docker.io/collabora/code docker tag to v25.04.9.3.1
+- [#53](https://github.com/Tim-herbie/opencloud-helm/pull/53) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v5.2.0
+- [#52](https://github.com/Tim-herbie/opencloud-helm/pull/52) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.5
+- [#51](https://github.com/Tim-herbie/opencloud-helm/pull/51) chore(deps): update docker/login-action action to v4
+- [#50](https://github.com/Tim-herbie/opencloud-helm/pull/50) chore(deps): update docker.io/collabora/code docker tag to v25.04.9.2.1
+- [#49](https://github.com/Tim-herbie/opencloud-helm/pull/49) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.4
+- [#48](https://github.com/Tim-herbie/opencloud-helm/pull/48) chore(deps): update docker.io/collabora/code docker tag to v25.04.9.1.1
+- [#45](https://github.com/Tim-herbie/opencloud-helm/pull/45) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.3
+- [#44](https://github.com/Tim-herbie/opencloud-helm/pull/44) chore(deps): update docker.io/collabora/code docker tag to v25.04.8.3.1
+- [#43](https://github.com/Tim-herbie/opencloud-helm/pull/43) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v5.0.2
+- [#38](https://github.com/Tim-herbie/opencloud-helm/pull/38) chore: refactor s3 settings
+- [#37](https://github.com/Tim-herbie/opencloud-helm/pull/37) chore: refactor oidc settings and enable external oidc configuration
+- [#35](https://github.com/Tim-herbie/opencloud-helm/pull/35) chore: extend helm chart validation in pr workflow
+- [#33](https://github.com/Tim-herbie/opencloud-helm/pull/33) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v5.0.1
+- [#32](https://github.com/Tim-herbie/opencloud-helm/pull/32) chore(deps): update docker.io/collabora/code docker tag to v25.04.8.2.1
+- [#31](https://github.com/Tim-herbie/opencloud-helm/pull/31) chore(deps): update docker.io/opencloudeu/opencloud-rolling docker tag to v5
+- [#30](https://github.com/Tim-herbie/opencloud-helm/pull/30) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.2
+- [#25](https://github.com/Tim-herbie/opencloud-helm/pull/25) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.1
+- [#13](https://github.com/Tim-herbie/opencloud-helm/pull/13) chore(deps): update quay.io/keycloak/keycloak docker tag to v26.5.0
+- [#15](https://github.com/Tim-herbie/opencloud-helm/pull/15) chore(deps): update azure/setup-helm action to v4
+- [#14](https://github.com/Tim-herbie/opencloud-helm/pull/14) chore(deps): update actions/checkout action to v6
+- [#16](https://github.com/Tim-herbie/opencloud-helm/pull/16) chore(deps): update docker.io/collabora/code docker tag to v25
+- [#12](https://github.com/Tim-herbie/opencloud-helm/pull/12) chore(deps): update helm/chart-releaser-action action to v1.7.0
+- [#10](https://github.com/Tim-herbie/opencloud-helm/pull/10) chore(deps): update docker.io/onlyoffice/documentserver docker tag to v8.3.3
+- [#9](https://github.com/Tim-herbie/opencloud-helm/pull/9) chore(deps): update docker.io/library/busybox docker tag to v1.37
+- [#6](https://github.com/Tim-herbie/opencloud-helm/pull/6) chore(deps): update docker.io/collabora/code docker tag to v24.04.13.3.1
+- [#5](https://github.com/Tim-herbie/opencloud-helm/pull/5) chore: Configure Renovate
+- [#166](https://github.com/Tim-herbie/opencloud-helm/pull/166) option to use HTTPS protocol when TLS is provided externally
+- [#164](https://github.com/Tim-herbie/opencloud-helm/pull/164) Preserve storage users mount ID during legacy migration
+- [#159](https://github.com/Tim-herbie/opencloud-helm/pull/159) Feature: Move collaboration into the opencloud process
+- [#132](https://github.com/Tim-herbie/opencloud-helm/pull/132) Enable Renovate updates for web extension image tags
+- [#98](https://github.com/Tim-herbie/opencloud-helm/pull/98) Make credential migration hook configurable via `opencloud.migration.enabled`
+- [#88](https://github.com/Tim-herbie/opencloud-helm/pull/88) Update OpenCloud web extension tags to latest available releases
+- [#85](https://github.com/Tim-herbie/opencloud-helm/pull/85) Feature/add init secretes
+- [#80](https://github.com/Tim-herbie/opencloud-helm/pull/80) Add new web extensions: arcade, calculator, cast, maps, pastebin
+- [#77](https://github.com/Tim-herbie/opencloud-helm/pull/77) Add release bot
+- [#69](https://github.com/Tim-herbie/opencloud-helm/pull/69) add affinity to opencloud deployment
+- [#55](https://github.com/Tim-herbie/opencloud-helm/pull/55) Move HTTPRoute resources to application folders
+- [#47](https://github.com/Tim-herbie/opencloud-helm/pull/47) Prepare release 2.0
+- [#26](https://github.com/Tim-herbie/opencloud-helm/pull/26) Individual ingress tls secretName per module & remove if empty
+- [#28](https://github.com/Tim-herbie/opencloud-helm/pull/28) All occurences of OnlyOffice removed
+- [#20](https://github.com/Tim-herbie/opencloud-helm/pull/20) Feature/enable external collabora
+
+
 ## [3.2.3] - 2026-11-18
 
 ### Breaking Changes
